@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import './index.css'
+import Fancybox from "../fancybox"
 
 const IndexPage = ({data}) => {
   console.log(data)
@@ -10,11 +11,15 @@ const IndexPage = ({data}) => {
       <div className="content">
         <h1>Merhaba, Ben Cengiz</h1>
         <p>Bu bir test uygulamasıdır. Gatsby ile kendi çekimlerimi yayınlamayı planlıyorum.</p>
+        <Fancybox>
         <div className="photos">
           {data.allFile.edges.map(({ node }) =>{
-            return  <Img key={node.id} fluid={node.childImageSharp.fluid} />
-          })}
+            return <a data-fancybox="gallery" className="photo" key={node.id} href={node.childImageSharp.fluid.src}>
+                    <Img data-fancybox="gallery"  fluid={node.childImageSharp.fluid} />
+                   </a>
+            })}
         </div>
+        </Fancybox>
       </div>
     </div>
   )

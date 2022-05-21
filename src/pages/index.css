@@ -230,9 +230,12 @@ pre tt:after {
   margin-left: auto;
 }
 .photos{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.photo{
+  width: 33.333%;
 }
 .content{
   padding: 2rem 0rem;

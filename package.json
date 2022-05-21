@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@fancyapps/ui": "^4.0.27",
     "gatsby": "^4.14.1",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-gatsby-cloud": "^4.14.0",
