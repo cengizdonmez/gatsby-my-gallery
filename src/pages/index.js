@@ -16,7 +16,11 @@ const IndexPage = ({data}) => {
         <Fancybox>
         <div className="photos">
           {data.allFile.edges.map(({ node }) =>{
-            return <a data-fancybox="gallery" className="photo" key={node.id} href={node.childImageSharp.fluid.src}>
+            return <a 
+                    data-sal="zoom-in"
+                    data-sal-easing="ease"
+                    data-sal-duration="500"
+                    data-fancybox="gallery" className="photo" key={node.id} href={node.childImageSharp.fluid.src}>
                     <Img data-fancybox="gallery"  fluid={node.childImageSharp.fluid} />
                    </a>
             })}
@@ -38,7 +42,7 @@ export const pageQuery = graphql`
         node {
           id
           childImageSharp{
-            fluid (maxWidth: 1024) {
+            fluid {
               ...GatsbyImageSharpFluid
             }
           }
