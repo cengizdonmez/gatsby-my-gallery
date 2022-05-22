@@ -9,8 +9,10 @@ const IndexPage = ({data}) => {
   return (
     <div className="container">
       <div className="content">
-        <h1>Merhaba, Ben Cengiz</h1>
-        <p>Bu bir test uygulamasıdır. Gatsby ile kendi çekimlerimi yayınlamayı planlıyorum.</p>
+        <div className="hero">
+          <h1>Merhaba, Ben Cengiz</h1>
+          <p>Bu bir test uygulamasıdır. Kendi çekimlerimi yayınlamayı planlıyorum. Bu projede optimize edilmiş görüntüler için gatsby-image plugin kullandık. Resimleri yüklemek için apple kestirmeler kullanarak github api'ye yönlendirdik. Bu sayede telefonumdan istediğim fotoğrafı seçerek bu galeriye yüklemiş olacağız. Fotoğrafları rahat bir şekilde incelemek için tabiki de fancybox'da kullandım.</p>
+        </div>
         <Fancybox>
         <div className="photos">
           {data.allFile.edges.map(({ node }) =>{
@@ -20,6 +22,10 @@ const IndexPage = ({data}) => {
             })}
         </div>
         </Fancybox>
+        <footer>
+          <p>Kaynak Adem İlter Dersleri</p>
+          <span>2022©</span>
+        </footer>
       </div>
     </div>
   )
@@ -32,7 +38,7 @@ export const pageQuery = graphql`
         node {
           id
           childImageSharp{
-            fluid (maxWidth: 3024) {
+            fluid (maxWidth: 1024) {
               ...GatsbyImageSharpFluid
             }
           }
